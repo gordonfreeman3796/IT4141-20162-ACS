@@ -34,6 +34,7 @@ if __FILE__ == $0
 
   for i in 0..100
    greedy = rand()
-   puts greedy
+   print "#{greedy} "
   end
+  puts
 end

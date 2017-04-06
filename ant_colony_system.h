@@ -20,14 +20,16 @@ typedef struct
     float history, heuristice, prob;
 } Probability;
 
+int search(int**, int, int, float, float, float, float);
 int euc_2d(int*, int*);
 int cost(int*, int**);
 void random_permutation(int*, int);
 void initialise_pheromone_matrix(int**, int, float);
-void calculate_choices(Probability*, int**, int, int*, int**, float, float, float);
-int prob_select(Probability*);
-void stepwise_cont(int*, int**, int**, float, float);
-void global_update_pheromone(float, Solution, float);
-void local_update_pheromone(float, Solution, float, float);
+void calculate_choices(Probability*, int**, int, int*, int**, float, float);
+int prob_select(Probability*, int);
+void greedy_select(Probability*, int);
+void stepwise_const(int*, int**, int**, float, float);
+void global_update_pheromone(float**, Solution, float);
+void local_update_pheromone(float**, Solution, float, float);
 
 #endif
