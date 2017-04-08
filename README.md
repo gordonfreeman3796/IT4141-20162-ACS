@@ -3,10 +3,10 @@
 ## Thành viên
 Nguyễn Đức Minh<br />
 Phan Xuân Đức<br />
-Nguyễn Văn Thưởng<br />
+Nguyễn Văn Thưởng
 ## Mã nguồn
 Ruby chứa bài toàn mẫu hoàn chỉnh<br />
-C chứa bài toàn cần phải cài đặt lại theo mã nguồn Ruby<br />
+C chứa bài toàn cần phải cài đặt lại theo mã nguồn Ruby
 ## Chạy thử
 ### Ruby
 Cài ruby lên máy, chạy script sau:
