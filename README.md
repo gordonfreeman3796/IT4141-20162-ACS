@@ -17,5 +17,7 @@ $ ruby ant_colony_system.rb
 Thực thi file exec.sh trên shell script:
 ```
 $ ./exec.sh
+(gdb) run
+(gdb) quit
 ```
 NDM
