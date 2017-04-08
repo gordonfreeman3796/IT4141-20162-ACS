@@ -12,3 +12,5 @@ Cài ruby lên máy, chạy script sau:
 ```
 $ ruby ant_colony_system.rb
 ```
+
+NDM
