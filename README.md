@@ -1,16 +1,21 @@
 # IT4141-20162-ACS
 Đây là bài tập lớn môn Tính toán Tiến hóa
 ## Thành viên
-Nguyễn Đức Minh__
-Phan Xuân Đức__
-Nguyễn Văn Thưởng__
+Nguyễn Đức Minh<br />
+Phan Xuân Đức<br />
+Nguyễn Văn Thưởng<br />
 ## Mã nguồn
-Ruby chứa bài toàn mẫu hoàn chỉnh__
-C chứa bài toàn cần phải cài đặt lại theo mã nguồn Ruby
-## Chạy thử (Ruby)
+Ruby chứa bài toàn mẫu hoàn chỉnh<br />
+C chứa bài toàn cần phải cài đặt lại theo mã nguồn Ruby<br />
+## Chạy thử
+### Ruby
 Cài ruby lên máy, chạy script sau:
 ```
 $ ruby ant_colony_system.rb
 ```
-
+### C
+Thực thi file exec.sh trên shell script:
+```
+$ ./exec.sh
+```
 NDM
