@@ -97,7 +97,6 @@ int euc_2d(int *city1, int *city2)
     return (int) round(sqrt((city1[0] - city2[0]) * (city1[0] - city2[0]) + (city1[1] - city2[1]) * (city1[1] - city2[1])));
 }
 
-
 void initialise_pheromone_matrix(float pheromone_matrix[CITY_SIZE][CITY_SIZE], float init_pheromone)
 {
     int i, j;
