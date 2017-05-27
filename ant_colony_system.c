@@ -121,9 +121,8 @@ Solution search(double *cities, int num_cities, int max_it, int num_ants, double
                     best.vector[k] = cand.vector[k];
                 best.cost = cand.cost;
             }
+            local_update_pheromone(pheromone, cand, num_cities, c_local_phero, init_pheromone);
             free(cand.vector);
-            cand.vector = NULL;
-            local_update_pheromone(pheromone, best, num_cities, c_local_phero, init_pheromone);
         }
         global_update_pheromone(pheromone, best, num_cities, decay);
         printf(" > iteration %d, best = %d\n", i + 1, best.cost);
