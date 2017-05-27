@@ -12,7 +12,8 @@
 
 typedef struct
 {
-    int *vector, cost;
+    int *vector;
+    unsigned int cost;
 } Solution;
 
 typedef struct
@@ -23,8 +24,8 @@ typedef struct
 
 Solution search(double*, int, int, int, double, double, double, double);
 int *random_permutation(int);
-int cost(int*, double*, int);
-int euc_2d(double*, int, int, int);
+unsigned int cost(int*, double*, int);
+unsigned int euc_2d(double*, int, int, int);
 double *initialise_pheromone_matrix(int, double);
 int *stepwise_const(double*, int, double*, double, double);
 void calculate_choices(double*, int, int, int*, int, double*, double, double);
@@ -34,6 +35,7 @@ void local_update_pheromone(double*, Solution, int, double, double);
 void global_update_pheromone(double*, Solution, int, double);
 
 Choice *choices = NULL;
+unsigned int *weight_matrix;
 
 main(int argc, char *argv[])
 {
@@ -51,6 +53,8 @@ main(int argc, char *argv[])
     fscanf(f, "%d", &n);
     cities = (double*) malloc(n * 2 * sizeof(double));
     choices = (Choice*) malloc((n - 1) * sizeof(Choice));
+    weight_matrix = (unsigned int*) malloc(n * n * sizeof(unsigned int));
+    
     fgets(buff, 255, f);
     fgets(buff, 255, f);
     fgets(buff, 255, f);
@@ -61,6 +65,15 @@ main(int argc, char *argv[])
         fscanf(f, "%lf", cities + i + n);
     }
     fclose(f);
+    for (i = 0; i < n; i++)
+        for (j = 0; j < n; j++)
+            *(weight_matrix + n * i + j) = euc_2d(cities, i, j, n);
+    /*for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+            printf("%5d ", *(weight_matrix + n * i + j));
+        printf("\n");
+    }*/
 
     Solution best = search(cities, n, MAX_IT, NUM_ANTS, DECAY, C_HEUR, C_LOCAL_PHERO,C_GREED);
     printf("Done, Best Solution: c = %d, v = ", best.cost);
@@ -119,20 +132,20 @@ int *random_permutation(int n)
     return arr;
 }
 
-int cost(int *arr, double *cities, int n)
+unsigned int cost(int *arr, double *cities, int n)
 {
-    int distance = 0, i, j;
+    unsigned int distance = 0, i, j;
     for (i = 0; i < n; i++)
     {
         j = (i == n - 1) ? 0 : i + 1;
-        distance += euc_2d(cities, arr[i] - 1, arr[j] - 1, n);
+        distance += *(weight_matrix + n * (arr[i] - 1) + arr[j] - 1);
     }
     return distance;
 }
 
-int euc_2d(double *cities, int i, int j, int n)
+unsigned int euc_2d(double *cities, int i, int j, int n)
 {
-    return (int) round(sqrt(pow(*(cities + i) - *(cities + j), 2) + pow(*(cities + i + n) - *(cities + j + n), 2)));
+    return (unsigned int) round(sqrt(pow(*(cities + i) - *(cities + j), 2) + pow(*(cities + i + n) - *(cities + j + n), 2)));
 }
 
 double *initialise_pheromone_matrix(int n, double init_pher)
@@ -150,7 +163,7 @@ int *stepwise_const(double *cities, int num_cities, double *pheromone, double c_
     int perm_size = 1, q, q0 = c_greed * RAND_MAX, choices_size, next_city;
     int *perm = (int*) malloc(perm_size * sizeof(int));
     
-    perm[0] = rand() % num_cities + 1;
+    perm[0] = rand() % num_cities + 1;/**/
     while (perm_size < num_cities)
     {
         calculate_choices(cities, num_cities, perm[perm_size - 1], perm, perm_size, pheromone, c_heur, 1.0);
