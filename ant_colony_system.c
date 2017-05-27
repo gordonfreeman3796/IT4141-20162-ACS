@@ -2,7 +2,6 @@
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
-#include <string.h>
 
 #define MAX_IT 1250
 #define NUM_ANTS 10
@@ -48,7 +47,6 @@ main(int argc, char *argv[])
     fgets(buff, 255, f);
     fgets(buff, 255, f);
     fgets(buff, 255, f);
-    /*fscanf(f, "%s", buff);*/
     fscanf(f, "%s", buff);
     fscanf(f, "%d", &n);
     cities = (double*) malloc(n * 2 * sizeof(double));
@@ -62,31 +60,7 @@ main(int argc, char *argv[])
         fscanf(f, "%lf", cities + i);
         fscanf(f, "%lf", cities + i + n);
     }
-
-    /*Edge weight*/
-    /*fgets(buff, 255, f);
-    fgets(buff, 255, f);
-    fgets(buff, 255, f);
-    fscanf(f, "%s", buff);
-    fscanf(f, "%d", &n);
-    cities = (double*) malloc(n * n * sizeof(double));
-    choices = (Choice*) malloc((n - 1) * sizeof(Choice));
-    fgets(buff, 255, f);
-    fgets(buff, 255, f);
-    fgets(buff, 255, f);
-    fgets(buff, 255, f);
-    for (i = 0; i < n; i++)
-        for (j = 0; j < n; j++)
-            fscanf(f, "%lf", (cities + n * i + j));
     fclose(f);
-    printf("%d\n", n);
-    for (i = 0; i < n; i++)
-    {
-        for (j = 0; j < n; j++)
-            printf("%.0lf ", *(cities + n * i + j));
-        printf("\n");
-    }*/
-        
 
     Solution best = search(cities, n, MAX_IT, NUM_ANTS, DECAY, C_HEUR, C_LOCAL_PHERO,C_GREED);
     printf("Done, Best Solution: c = %d, v = ", best.cost);
@@ -152,7 +126,6 @@ int cost(int *arr, double *cities, int n)
     {
         j = (i == n - 1) ? 0 : i + 1;
         distance += euc_2d(cities, arr[i] - 1, arr[j] - 1, n);
-        /*distance += *(cities + n * (arr[i] - 1) + (arr[j] - 1));*/
     }
     return distance;
 }
