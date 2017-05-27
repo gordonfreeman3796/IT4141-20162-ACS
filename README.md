@@ -16,8 +16,7 @@ $ ruby ant_colony_system.rb
 ### C
 Thực thi file exec.sh trên shell script:
 ```
-$ ./exec.sh
-(gdb) run
-(gdb) quit
+$ ./exec.sh TSPLIB/<ten-bai-toan-can-giai>
 ```
+VD: ./exec.sh TSPLIB/berlin52.tsp
 NDM
