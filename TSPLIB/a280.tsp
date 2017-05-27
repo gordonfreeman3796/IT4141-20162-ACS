@@ -1,4 +1,4 @@
-NAME: a280
+NAME: a280 OPT_TOUR: 2579
 COMMENT: drilling problem (Ludwig)
 TYPE: TSP
 DIMENSION: 280

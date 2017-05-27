@@ -1,4 +1,4 @@
-NAME : d1655
+NAME : d1655 OPT_TOUR: 62128
 COMMENT : Drilling problem (Reinelt)
 TYPE : TSP
 DIMENSION: 1655

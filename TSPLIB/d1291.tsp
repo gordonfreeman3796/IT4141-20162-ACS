@@ -1,4 +1,4 @@
-NAME : d1291
+NAME : d1291 OPT_TOUR: 50801
 COMMENT : Drilling problem (Reinelt)
 TYPE : TSP
 DIMENSION: 1291

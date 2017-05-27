@@ -1,4 +1,4 @@
-NAME : d18512
+NAME : d18512 OPT_TOUR: [644650,645923]
 COMMENT : Bundesrepublik Deutschland (mit Ex-DDR) (Bachem/Wottawa)
 TYPE : TSP
 DIMENSION: 18512

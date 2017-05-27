@@ -1,4 +1,4 @@
-NAME: ch150
+NAME: ch150 OPT_TOUR: 6528
 TYPE: TSP
 COMMENT: 150 city Problem (churritz)
 DIMENSION: 150

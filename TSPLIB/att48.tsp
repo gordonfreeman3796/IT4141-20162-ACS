@@ -1,4 +1,4 @@
-NAME : att48
+NAME : att48 OPT_TOUR: 10628
 COMMENT : 48 capitals of the US (Padberg/Rinaldi)
 TYPE : TSP
 DIMENSION: 48
