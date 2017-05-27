@@ -19,4 +19,5 @@ Thực thi file exec.sh trên shell script:
 $ ./exec.sh TSPLIB/<ten-bai-toan-can-giai>
 ```
 VD: ./exec.sh TSPLIB/berlin52.tsp
+
 NDM
